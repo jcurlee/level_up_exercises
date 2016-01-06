@@ -37,20 +37,19 @@ class Triangle
   def recite_facts
     case
     when equilateral
-      puts 'This triangle is equilateral!'
+      result = 'This triangle is equilateral!'
     when isosceles
-      puts 'This triangle is isosceles! Also, that word is hard to type.'
+      result = 'This triangle is isosceles! Also, that word is hard to type.'
     else
-      puts 'This triangle is scalene and mathematically boring.'
+      result = 'This triangle is scalene and mathematically boring.'
     end
 
     angles = calculate_angles(side1, side2, side3)
 
-    puts 'The angles of this triangle are ' + angles.join(',')
+    result += "\nThe angles of this triangle are " + angles.join(',')
+    result += (angles.include? 90) ? "\nThis triangle is also a right triangle!\n\n" : "\n\n"
 
-    puts 'This triangle is also a right triangle!' if angles.include? 90
-
-    puts
+    puts result
   end
 end
 

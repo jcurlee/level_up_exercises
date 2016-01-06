@@ -15,20 +15,17 @@ class Arrowhead
     }
   }
 
+  def self.get_regional_shapes(region)
+    raise "Unknown region, please provide a valid region." if !CLASSIFICATIONS.include? region
+    CLASSIFICATIONS[region]
+  end
+
   def self.classify(region, shape)
-    if !CLASSIFICATIONS.include? region
-      raise "Unknown region, please provide a valid region."
-    end
+    shapes = self.get_regional_shapes(region)
 
-    shapes = CLASSIFICATIONS[region]
+    raise "Unknown shape value. Are you sure you know what you're talking about?" if !shapes.include? shape
 
-    if !shapes.include? shape
-      raise "Unknown shape value. Are you sure you know what you're talking about?"
-    end
-
-    arrowhead = shapes[shape]
-
-    "You have a(n) '#{arrowhead}' arrowhead. Probably priceless."
+    "You have a(n) '#{shapes[shape]}' arrowhead. Probably priceless."
   end
 end
 

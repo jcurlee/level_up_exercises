@@ -6,11 +6,11 @@ class Triangle
     @side1, @side2, @side3 = side1, side2, side3
   end
 
-  def equilateral()
+  def equilateral
     side1 == side2 && side3
   end
 
-  def isosceles()
+  def isosceles
     [side1, side2, side3].uniq.length == 2
   end
 

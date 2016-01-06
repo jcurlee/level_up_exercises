@@ -7,23 +7,31 @@ class Triangle
   end
 
   def equilateral()
-    return side1 == side2 && side2 == side3
+    side1 == side2 && side2 == side3
   end
 
   def isosceles()
-    return [side1, side2, side3].uniq.length == 2
+    [side1, side2, side3].uniq.length == 2
   end
 
   def calculate_angles(a,b,c)
-    angleA = radians_to_degrees(Math.acos((b**2 + c**2 - a**2) / (2.0 * b * c)))
-    angleB = radians_to_degrees(Math.acos((a**2 + c**2 - b**2) / (2.0 * a * c)))
-    angleC = radians_to_degrees(Math.acos((a**2 + b**2 - c**2) / (2.0 * a * b)))
+    angleA = radians_to_degrees(
+      Math.acos((b**2 + c**2 - a**2) / (2.0 * b * c))
+    )
 
-    return [angleA, angleB, angleC]
+    angleB = radians_to_degrees(
+      Math.acos((a**2 + c**2 - b**2) / (2.0 * a * c))
+    )
+
+    angleC = radians_to_degrees(
+      Math.acos((a**2 + b**2 - c**2) / (2.0 * a * b))
+    )
+
+    [angleA, angleB, angleC]
   end
 
   def radians_to_degrees(rads)
-    return (rads * 180 / Math::PI).round
+    (rads * 180 / Math::PI).round
   end
 
   def recite_facts

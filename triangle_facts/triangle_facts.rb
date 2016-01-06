@@ -58,9 +58,7 @@ end
 triangles = [
   [5, 5, 5],
   [5, 12, 13]
-]
-
-triangles.each {
+].each {
   |sides|
   tri = Triangle.new(*sides)
   tri.recite_facts

@@ -14,7 +14,7 @@ class Triangle
     [side1, side2, side3].uniq.length == 2
   end
 
-  def calculate_angles(a,b,c)
+  def calculate_angles(a, b, c)
     angleA = radians_to_degrees(
       Math.acos((b**2 + c**2 - a**2) / (2.0 * b * c))
     )

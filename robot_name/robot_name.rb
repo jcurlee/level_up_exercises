@@ -8,16 +8,22 @@ class Robot
     @name_generator ||= -> { name_builder }
   end
 
-  def initialize(args = {})
-    @name_generator = args[:name_generator]
-    @name = args[:name] ? register_name(args[:name]) : generate_name
+  def name=(name)
+    @name = name ? register_name(name) : generate_name
   end
 
-  private
+  def initialize(args = {})
+    @name_generator = args[:name_generator]
+    self.name = args[:name]
+  end
+
+  private_class_method
 
   def self.registry
     @registry ||= []
   end
+
+  private
 
   def generate_name
     robot_name = name_generator.call
@@ -50,9 +56,7 @@ class Robot
   end
 
   def generate_num_string
-    nums = ""
-    (1..3).to_a.map { nums += rand(10).to_s }
-    nums
+    (1..3).reduce("") { |nums| nums << rand(10).to_s }
   end
 
   def name_exists?(robot_name)

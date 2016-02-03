@@ -1,20 +1,16 @@
 !!!
 %html
 %head
-  %title
-    DinosaurCatalog
+  %title DinosaurCatalog
+  =stylesheet_link_tag "application"
+
 %body
-  %h1 DinosaurCatalog
-  %hr
-  %form
-    %input{type: "text", name: "search", placeholder: "search"}
-    %input{type: "submit", name: "submit", value: "go!"}
+  =render partial: "navbar"
 
   .container-fluid
     .row
       .col-xs-12
-
         =yield
 
-  .footer
-    &copy; #{Date.current.year} DinosaurCatalog
+  =render partial: "footer"
+  =javascript_include_tag "application"

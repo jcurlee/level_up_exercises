@@ -1,0 +1,13 @@
+%h2
+  #{@dinosaur[:name]}
+  - if @dinosaur[:description]
+    %small #{@dinosaur[:description]}
+
+%p.meta
+  A #{@dinosaur[:walking]}
+  from the #{@dinosaur[:period]} period
+
+  - if @dinosaur[:continent]
+    lived in #{@dinosaur[:continent]} and
+
+  weighed #{@dinosaur[:weight]}lbs

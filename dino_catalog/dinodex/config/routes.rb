@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'dinosaur#show'
+  root 'dinosaur#index'
 end

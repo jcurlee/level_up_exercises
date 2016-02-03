@@ -1,4 +1,16 @@
 class DinosaurController < ApplicationController
-  def show
+  def index
+    @columns = [
+      "name",
+      "period",
+      "walking",
+      "diet",
+      "weight",
+      "walking",
+      "continent",
+      "description",
+    ]
+
+    @dinosaurs = Dinosaur.all.select(@columns)
   end
 end

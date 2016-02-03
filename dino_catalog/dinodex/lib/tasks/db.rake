@@ -7,12 +7,14 @@ namespace :db do
     dinosaurs = JSON.parse(file.read)
 
     dinosaurs.each do |dinosaur|
+      dinosaur.symbolize_keys!
+
       Dinosaur.create(
         name: dinosaur[:name],
         period: dinosaur[:period],
         continent: dinosaur[:continent],
         diet: dinosaur[:diet],
-        weight_in_lbs: dinosaur[:weight],
+        weight: dinosaur[:weight],
         walking: dinosaur[:walking],
         description: dinosaur[:description],
       )

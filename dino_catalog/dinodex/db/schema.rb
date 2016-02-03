@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203163348) do
+ActiveRecord::Schema.define(version: 20160203160645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dinosaurs", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "name"
     t.string   "period"
     t.string   "diet"
-    t.string   "weight_in_lbs"
-    t.text     "description"
-    t.string   "continent"
+    t.string   "weight"
     t.string   "walking"
+    t.string   "continent"
+    t.text     "description"
   end
 
 end

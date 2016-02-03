@@ -1,0 +1,17 @@
+%table.table
+  %thead
+    %tr
+      - @columns.each do |col|
+        %th #{col.titleize}
+
+  %tbody
+    - @dinosaurs.each do |dino|
+      %tr
+        %td #{dino[:name]}
+        %td #{dino[:period]}
+        %td #{dino[:walking]}
+        %td #{dino[:diet]}
+        %td #{dino[:weight]}
+        %td #{dino[:walking]}
+        %td #{dino[:continent]}
+        %td #{dino[:description]}

@@ -1,7 +1,15 @@
 class DinosaurController < ApplicationController
   def index
-
-    @dinosaurs = Dinosaur.all
+    @columns = [
+      'name',
+      'period',
+      'walking',
+      'diet',
+      'weight',
+      'continent',
+      'description'
+    ]
+    @dinosaurs = Dinosaur.all.order(:name)
   end
 
   def show

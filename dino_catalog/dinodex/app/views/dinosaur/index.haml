@@ -1,13 +1,14 @@
 %table.table
+  %thead
+    %tr
+      - @columns.each do |col|
+        %th #{col.titleize}
   %tbody
     - @dinosaurs.each do |dino|
       %tr
-        %td
-          =link_to dino[:name], dinosaur_path(dino)
-        %td #{dino[:period]}
-        %td #{dino[:walking]}
-        %td #{dino[:diet]}
-        %td #{dino[:weight]}
-        %td #{dino[:walking]}
-        %td #{dino[:continent]}
-        %td #{dino[:description]}
+        - @columns.each do |col|
+          %td
+            - if col == 'name'
+              =link_to dino[:name], dinosaur_path(dino)
+            - else
+              #{dino[col]}
